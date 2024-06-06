@@ -25,6 +25,10 @@ public class PessoaEntity implements Serializable {
 	
 	public PessoaEntity() { }
 
+	public PessoaEntity(Long codigo) {
+		this.codigo = codigo;
+	}
+
 	public Long getCodigo() {
 		return codigo;
 	}

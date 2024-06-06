@@ -25,6 +25,10 @@ public class CategoriaAcessoEntity implements Serializable {
 	
 	public CategoriaAcessoEntity() { }
 
+	public CategoriaAcessoEntity(Long codigo) {
+		this.codigo = codigo;
+	}
+
 	public Long getCodigo() {
 		return codigo;
 	}
