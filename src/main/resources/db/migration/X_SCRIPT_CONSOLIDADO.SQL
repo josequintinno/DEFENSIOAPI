@@ -1,5 +1,4 @@
 drop table if exists flyway_schema_history;
-drop table if exists tb_acesso_pessoa;
 drop table if exists tb_acesso;
 drop table if exists tb_pessoa;
 drop table if exists tb_categoria_acesso;
@@ -32,15 +31,6 @@ create table if not exists tb_acesso (
 	constraint fk_pessoa_monitorada foreign key (id_pessoa_monitorada) references tb_pessoa,
 	constraint fk_categoria_acesso foreign key (id_categoria_acesso) references tb_categoria_acesso,
 	constraint ck_acesso_indetificador unique (identificador)
-);
-
-create table if not exists tb_acesso_pessoa (
-	codigo serial not null,
-	id_acesso integer not null,
-	id_pessoa integer not null,
-	constraint pk_acesso_pessoa primary key (codigo),
-	constraint fk_acesso foreign key (id_acesso) references tb_acesso,
-	constraint fk_pessoa foreign key (id_pessoa) references tb_pessoa
 );
 
 insert into tb_pessoa (nome) values ('José Quintinno');
@@ -77,6 +67,17 @@ insert into tb_acesso (
 	(select codigo from tb_categoria_acesso where descricao = 'E-mail'),
 	'josequintino@hotmail.com.br',
 	'd7d1b0f1-bb7b-4584-95b7-82c33cfd68a8',
+	null,
+	'http://outlook.live.com'
+);
+
+insert into tb_acesso (
+	id_pessoa_monitorada, id_categoria_acesso, identificador, chave, nome_aplicativo, 
+	endereco_url) values (
+	(select codigo from tb_pessoa where nome = 'Microsoft'),
+	(select codigo from tb_categoria_acesso where descricao = 'E-mail'),
+	'jose.quintinno@outlook.com.br',
+	'b9c31e79-6e13-4f10-9e43-2c27f30b6c7f',
 	null,
 	'http://outlook.live.com'
 );

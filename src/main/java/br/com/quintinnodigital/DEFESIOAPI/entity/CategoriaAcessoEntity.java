@@ -10,20 +10,20 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "TB_PESSOA", schema = "public")
-public class PessoaEntity implements Serializable {
-	
-	private static final long serialVersionUID = 1L;
+@Table(name = "TB_CATEGORIA_PESSOA")
+public class CategoriaAcessoEntity implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "CODIGO", nullable = false)
 	private Long codigo;
 	
-	@Column(name = "NOME", nullable = false)
-	private String nome;
+	@Column(name = "DESCRICAO", nullable = false)
+	private String descricao;
 	
-	public PessoaEntity() { }
+	public CategoriaAcessoEntity() { }
 
 	public Long getCodigo() {
 		return codigo;
@@ -33,12 +33,12 @@ public class PessoaEntity implements Serializable {
 		this.codigo = codigo;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
 }
