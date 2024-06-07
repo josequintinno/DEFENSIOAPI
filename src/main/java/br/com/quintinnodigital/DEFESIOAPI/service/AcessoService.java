@@ -20,8 +20,7 @@ public class AcessoService {
 	}
 	
 	public AcessoEntity saveOne(AcessoRequestDTO acessoRequestDTO) {
-		AcessoEntity acessoEntity = AcessoRequestDTO.from(acessoRequestDTO);
-		return this.acessoRepository.save(acessoEntity);
+		return this.acessoRepository.save(AcessoEntity.from(acessoRequestDTO));
 	}
 
 }

@@ -3,6 +3,7 @@ package br.com.quintinnodigital.DEFESIOAPI.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import br.com.quintinnodigital.DEFESIOAPI.dto.AcessoRequestDTO;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -49,7 +50,21 @@ public class AcessoEntity implements Serializable {
 	@Column(name = "E_ATIVO", nullable = false)
 	private Boolean eAtivo;
 	
-	public AcessoEntity() { }
+	public AcessoEntity() {
+		this.eAtivo = true;
+		this.dataCriacao = new Date();
+	}
+	
+	public static AcessoEntity from(AcessoRequestDTO acessoRequestDTO) {
+		AcessoEntity acessoEntity = new AcessoEntity();
+			acessoEntity.setCategoriaAcessoEntity(new CategoriaAcessoEntity(Long.valueOf(acessoRequestDTO.getCodigoCategoria())));
+			acessoEntity.setPessoaEntity(new PessoaEntity(Long.valueOf(acessoRequestDTO.getCodigoPessoaMonitorada())));
+			acessoEntity.setChave(acessoRequestDTO.getChave());
+			acessoEntity.setEnderecoURL(acessoRequestDTO.getUrl());
+			acessoEntity.setIdentificador(acessoRequestDTO.getIdentificador());
+			acessoEntity.setNomeAplicativo(acessoRequestDTO.getNomeAplicativo());
+		return acessoEntity;
+	}
 
 	public Long getCodigo() {
 		return codigo;

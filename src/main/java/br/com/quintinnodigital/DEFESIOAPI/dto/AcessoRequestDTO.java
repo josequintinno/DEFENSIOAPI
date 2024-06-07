@@ -1,8 +1,8 @@
 package br.com.quintinnodigital.DEFESIOAPI.dto;
 
+import org.modelmapper.ModelMapper;
+
 import br.com.quintinnodigital.DEFESIOAPI.entity.AcessoEntity;
-import br.com.quintinnodigital.DEFESIOAPI.entity.CategoriaAcessoEntity;
-import br.com.quintinnodigital.DEFESIOAPI.entity.PessoaEntity;
 
 public class AcessoRequestDTO {
 	
@@ -18,7 +18,7 @@ public class AcessoRequestDTO {
 	
 	private String url;
 	
-	public AcessoRequestDTO() { }
+	public AcessoRequestDTO() {}
 	
 	public AcessoRequestDTO from(AcessoEntity acessoEntity) {
 		AcessoRequestDTO acessoRequestDTO = new AcessoRequestDTO();
@@ -34,11 +34,8 @@ public class AcessoRequestDTO {
 	}
 	
 	public static AcessoEntity from(AcessoRequestDTO acessoRequestDTO) {
-		AcessoEntity acessoEntity = new AcessoEntity();
-			acessoEntity.setChave(acessoRequestDTO.getChave());
-			acessoEntity.setEnderecoURL(acessoRequestDTO.getUrl());
-			acessoEntity.setNomeAplicativo(acessoRequestDTO.getNomeAplicativo());
-			acessoEntity.setPessoaEntity(new PessoaEntity(Long.valueOf(acessoRequestDTO.getCodigoPessoaMonitorada())));
+		ModelMapper modelMapper = new ModelMapper();
+		AcessoEntity acessoEntity = modelMapper.map(acessoRequestDTO, AcessoEntity.class);
 		return acessoEntity;
 	}
 

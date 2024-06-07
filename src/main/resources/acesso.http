@@ -1,0 +1,5 @@
+AcessoController
+
+-- SAVE
+curl -X POST -d '{"codigoCategoria":"1", "codigoPessoaMonitorada":"1", "identificador":"josequintinno@hotmail.com.br", "chave":"f47ac10b-58cc-4372-a567-0e02b2c3d479", "url":"http://outlook.live.com"}' -H "Content-Type: application/json" http://localhost:8080/api/v1/acesso/
+
