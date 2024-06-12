@@ -16,18 +16,18 @@ import br.com.quintinnodigital.DEFESIOAPI.service.AcessoService;
 
 @RestController
 @RequestMapping("/api/v1/acesso")
-@CrossOrigin("*")
+@CrossOrigin(origins = "http://127.0.0.1:5500")
 public class AcessoController {
 	
 	@Autowired
 	private AcessoService acessoService;
 	
-	@GetMapping("/")
+	@GetMapping
 	public List<AcessoEntity> findAll() {
 		return this.acessoService.findAll();
 	}
 	
-	@PostMapping("/")
+	@PostMapping
 	public AcessoEntity saveOne(@RequestBody AcessoRequestDTO acessoRequestDTO) {
 		return this.acessoService.saveOne(acessoRequestDTO);
 	}
