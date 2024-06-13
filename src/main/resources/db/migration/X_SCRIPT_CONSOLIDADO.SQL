@@ -83,3 +83,20 @@ insert into tb_acesso (
 );
 
 select * from tb_acesso;
+
+create table if not exists tb_parametro (
+	codigo serial not null,
+	descricao varchar not null,
+	sigla varchar not null,
+	valor varchar not null,
+	constraint pk_parametro primary key (codigo)
+);
+
+drop table if exists tb_parametro;
+
+insert into tb_parametro (descricao, sigla, valor) values ('Indica qual IP a aplicação será executada em Teste', 'IP_TESTE', '192.168.1.5');
+insert into tb_parametro (descricao, sigla, valor) values ('Indica qual IP a aplicação será executada em Homologação', 'IP_HOMOLOGACAO', '192.168.1.5');
+insert into tb_parametro (descricao, sigla, valor) values ('Indica qual IP a aplicação será executada em Produção', 'IP_PRODUCAO', '192.168.1.5');
+
+select * from tb_parametro;
+
