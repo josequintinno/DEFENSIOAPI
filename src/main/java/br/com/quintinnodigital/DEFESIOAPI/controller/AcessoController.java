@@ -16,7 +16,7 @@ import br.com.quintinnodigital.DEFESIOAPI.service.AcessoService;
 
 @RestController
 @RequestMapping("/api/v1/acesso")
-@CrossOrigin(origins = "http://127.0.0.1:5500")
+@CrossOrigin(origins = "*")
 public class AcessoController {
 	
 	@Autowired

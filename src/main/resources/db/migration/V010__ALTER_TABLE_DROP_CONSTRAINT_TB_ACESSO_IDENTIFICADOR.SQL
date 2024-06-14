@@ -1,0 +1,1 @@
+ALTER TABLE tb_acesso DROP CONSTRAINT ck_acesso_indetificador;

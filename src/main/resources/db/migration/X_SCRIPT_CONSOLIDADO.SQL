@@ -2,6 +2,7 @@ drop table if exists flyway_schema_history;
 drop table if exists tb_acesso;
 drop table if exists tb_pessoa;
 drop table if exists tb_categoria_acesso;
+drop table if exists tb_parametro;
 
 create table if not exists tb_pessoa (
 	codigo serial not null,
