@@ -18,4 +18,8 @@ public class PessoaService {
 		return this.pessoaRepository.findAll();
 	}
 
+	public PessoaEntity saveOne(PessoaEntity pessoaEntity) {
+		return this.pessoaRepository.save(pessoaEntity);
+	}
+
 }

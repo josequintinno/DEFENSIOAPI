@@ -1,6 +1,8 @@
 package br.com.quintinnodigital.DEFESIOAPI.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -22,6 +24,13 @@ public class CategoriaAcessoController {
 	@GetMapping
 	public List<CategoriaAcessoEntity> findAll() {
 		return this.categoriaAcessoService.finAll();
+	}
+
+	@GetMapping("/info")
+	public Map<String, String> API() {
+		Map<String, String> jsonMap = new HashMap<>();
+		jsonMap.put("descricao", "");
+		return jsonMap;
 	}
 
 }
