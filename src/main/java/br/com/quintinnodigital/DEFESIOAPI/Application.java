@@ -30,7 +30,7 @@ public class Application implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("#################");
-		System.out.println(API);
+		System.out.println("WELCOME TO "+ API + " - (8081)");
 		System.out.print("#################");
 	}
 
