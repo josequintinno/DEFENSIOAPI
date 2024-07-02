@@ -1,0 +1,1 @@
+alter table tb_acesso add constraint unique_usuario_senha unique (id_pessoa_monitorada, identificador, chave);
